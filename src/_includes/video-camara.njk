@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ca">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/style.css" />
+        <title>{{ title }}</title>
+    </head>
+    <script>
+    function keydown(e) {
+        if (e.key >= "1" && e.key <= "{{ videos.length }}") {
+            for(i=1;i<={{ videos.length }};i++){
+               document.getElementById("cam_"+i).style = "display:none";
+            }
+            document.getElementById("cam_"+e.key).style = "display:block";
+        }
+    }
+    window.addEventListener('keydown', keydown);
+    </script>
+    <body>
+    <!-- Import Mediaelement CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/mediaelement@latest/build/mediaelementplayer.min.css" rel="stylesheet">
+    <!-- Import Mediaelement JS -->
+    <script src="https://cdn.jsdelivr.net/npm/mediaelement@latest/build/mediaelement-and-player.min.js"></script>
+
+    <h1>{{ title }} - {{ fecha }}</h1>
+    <p>Es controlen les {{ videos.length }} càmeres, prement 1 per la càmera 1, 2 per la 2, etc... (Pot tardar 5 segons a començar, espereu-vos.)</p>
+    {% for video in videos %}
+    {% if loop.index == 1 %}
+    <div id="cam_{{loop.index}}">
+    {% else %}
+    <div id="cam_{{loop.index}}" style="display:none">
+    {% endif %}
+        <div class="player" width="100%" height="100%">
+            <video id="player-demo" width="100%" height="100%" preload="none" style="max-width: 100%" controls="" autoplay="true">
+                <source src="{{ video.url }}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    </body>
+</html>

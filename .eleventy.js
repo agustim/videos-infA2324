@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
       
     eleventyConfig.addPassthroughCopy("src/css");
     eleventyConfig.addPassthroughCopy("src/img");
+    eleventyConfig.addPassthroughCopy("src/js");
     eleventyConfig.addPassthroughCopy("src/CNAME");
     eleventyConfig.addFilter('log', value => {
         console.log(value)
