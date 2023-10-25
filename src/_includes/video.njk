@@ -12,8 +12,8 @@
     <!-- Import Mediaelement JS -->
     <script src="https://cdn.jsdelivr.net/npm/mediaelement@latest/build/mediaelement-and-player.min.js"></script>
 
-    <h1>{{ title }}</h1>
-    <h2>{{ fecha }}</h2>
+    <h2>{{ title }} - {{ fecha }}</h2>
+    <a href="{{ url | replace ("/partits/","/partits-cam/")}}/">Control de càmeres</a>
     {% for video in videos %}
     <h3>{{video.title}}</h3>
     <div class="player">
@@ -23,7 +23,7 @@
     </div>
     {% endfor %}
 
-    <a href="{{ url | replace ("/partits/","/partits-cam/")}}/">Control de càmeres</a>
+
 
     </body>
 </html>
