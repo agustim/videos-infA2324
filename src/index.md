@@ -7,6 +7,6 @@ layout: "base.njk"
 ## Partits
 
 {% for partit in collections.partits %}
-- [{{ partit.data.title }}]({{ partit.data.url }})
+- [{{ partit.data.title }} ({{ partit.data.fecha }})]({{ partit.data.url }})
 {% endfor %}
 
